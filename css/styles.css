@@ -32,8 +32,8 @@ body{
 
 #container{
 	margin:0px auto;
-	max-width:528px;
-	width:80%;
-	height:auto;
-	background-color:#000;
+	max-width:320px;
+	width:90%;
+	height:533px;
+	background: linear-gradient(180deg, #F1613C, #F7921E);
 }
