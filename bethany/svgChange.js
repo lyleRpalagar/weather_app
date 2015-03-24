@@ -3,3 +3,28 @@ window.onload = function changeTemp(){
 	document.getElementById('temp').innerHTML = svg.replace('%{temp}', 95);
 	document.getElementById('desc').innerHTML = svg.replace('%{desc})', 'Go get em!');
 }
+
+// More advanced weather checking
+// pass in 'temp', 'rain'
+var config = {
+	"really_cold": {
+		"conditions": {
+			"temp": [-999, 20]
+		},
+		"clothes": {
+			"tops": "jacket",
+			"bottoms": "pants",
+			"shoes": "boots"
+		} 
+	}, 
+	"really_hot":{}
+};
+for (var types in config) {
+	var correct = false;
+	var c = types.conditions;
+	// Check for temp
+	if (!(c.hasOwnProperty("temp") && temp >= c.temp[0] && temp <= c.temp[1]))
+		continue;
+	// Check for rain
+	//correct = c.hasOwnProperty("rain") && rain == c.rain;
+}

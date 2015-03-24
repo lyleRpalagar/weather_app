@@ -21,19 +21,58 @@ input, select, textarea, button{font-family:inherit;}
 
 /*--------------------------------------------------------------------*/
 
+html, body {
+	height: 100%;
+}
 
-body{
-   background: #E6E7E8;
+body {
    font-family: 'Lato', sans-serif;
    font-size:13pt;
    font-weight:300;
-   color:#58595B;
+   color: #FFF;
+   background: linear-gradient(180deg, #F1613C, #F7921E);
 }
 
-#container{
-	margin:0px auto;
-	max-width:320px;
-	width:90%;
-	height:533px;
-	background: linear-gradient(180deg, #F1613C, #F7921E);
+/*---------Header----------*/
+nav {
+	/*white with .1 opacity*/
+	background-color: rgba(255, 255, 255, 0.1);
+	height: 3.3em;
 }
+
+/*-------------------------*/
+
+#container {
+	margin:0 auto;
+	width: 95%;
+	max-width: 600px;
+}
+
+
+/*---------FOOTER----------*/
+footer {
+	position: fixed;
+    bottom: 4%;
+    width: 100%;
+}
+
+#bottom{
+	display: flex; 
+	justify-content: space-between;
+    width: 95%;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+#bottom div {
+	width: 33%;
+	text-align: center;
+
+}
+
+footer img {
+	width: 90%;
+}
+/*-------------------------*/
+
+

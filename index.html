@@ -1,10 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
+
 <!--******************************************
 		Weather app - what to wear		
     ******************************************-->
 	<title>Weather App</title>
+	<!--set viewport for mobile-->
+	<meta name="viewport" content="width=device-width, user-scalable=no, minimal-ui=yes">
 	<link rel="stylesheet" type="text/css" href="css/styles.css">	
 	<script type="text/javascript" src="js/custom.js"></script>
 	
@@ -13,12 +16,23 @@
 </head>
 
 <body>
+
+	<nav></nav>
+
 	 <div id="container">
-	 	<h1> Testing </h1>
 	 	<div id="loading"></div>
 	 	<div id="temp"></div>
-	 	<button id="weather" onclick="getWeather()"> Weather</div>
+	 	<button id="weather" onclick="getWeather()"> Weather</button>
 	 </div>
+
+	 <footer>
+	 	<div id = "bottom">
+	 		<div><img id = "tops" src = "images/shirt.svg"/></div>
+	 		<div><img id = "bottoms" src = "images/pants.svg"/></div>
+	 		<div><img id = "shoes" src = "images/shirt.svg"/></div>
+	 	</div>
+
+	 </footer>
 
 </body>
 </html>
