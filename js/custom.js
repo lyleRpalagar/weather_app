@@ -18,14 +18,15 @@ function getWeather() {
 
 			var response = myRequest.responseText;
 		    var answer = JSON.parse(response);	
-
 			//get the temperature
 			var kelvin_temp = answer.main.temp;
-			if (kelvin_temp){
-			    var far_temp = Math.round((kelvin_temp - 273.15)* 1.8000 + 32.00);
-				document.getElementById('temp').innerHTML = far_temp + " degrees";
-				getClothes(far_temp);
-			}
+				if (kelvin_temp){
+				    var far_temp = Math.round((kelvin_temp - 273.15)* 1.8000 + 32.00);
+					document.getElementById('temp').innerHTML = far_temp + " degrees";
+					getClothes(far_temp);
+				}
+            var cityName = answer.name;
+			getCity(cityName);
 					
 		}
 
@@ -36,6 +37,14 @@ function getWeather() {
 }
 
 
+function getCity(cityName){
+	document.getElementById('city_name_header').innerHTML = cityName;
+	document.getElementById('city_name_footer').innerHTML = cityName;
+	document.getElementById('city_name_footer').style.borderBottom = "thick solid #fff";
+	document.getElementById('city_name_footer').style.width = "10%";
+	document.getElementById('city_name_footer').style.paddingBottom ="10px";
+	document.getElementById('city_name_footer').style.color = "#00bedf";
+}
 
 function getClothes(temp){
 	
