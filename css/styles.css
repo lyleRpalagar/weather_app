@@ -20,6 +20,9 @@ a{cursor:pointer;}
 input, select, textarea, button{font-family:inherit;}
 
 /*--------------------------------------------------------------------*/
+.clear{
+	clear:both;
+}
 
 html, body {
 	height: 100%;
@@ -33,14 +36,7 @@ body {
    background: linear-gradient(180deg, #F1613C, #F7921E);
 }
 
-/*---------Header----------*/
-nav {
-	/*white with .1 opacity*/
-	background-color: rgba(255, 255, 255, 0.1);
-	height: 3.3em;
-}
 
-/*-------------------------*/
 
 #container {
 	margin:0 auto;
@@ -48,20 +44,16 @@ nav {
 	max-width: 600px;
 }
 
-
-/*---------FOOTER----------*/
-footer {
-	position: fixed;
-    bottom: 4%;
-    width: 100%;
-}
-
+/*--------- Bottom ----------*/
 #bottom{
 	display: flex; 
 	justify-content: space-between;
     width: 95%;
     max-width: 600px;
     margin: 0 auto;
+    width:100%;
+    position: absolute;
+    bottom:25%;
 }
 
 #bottom div {
@@ -70,9 +62,13 @@ footer {
 
 }
 
-footer img {
+#bottom img {
 	width: 90%;
 }
 /*-------------------------*/
+
+
+
+
 
 
