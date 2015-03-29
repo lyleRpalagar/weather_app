@@ -26,7 +26,7 @@ function getWeather() {
 					getClothes(far_temp);
 				}
             var cityName = answer.name;
-			getCity(cityName);
+			//getCity(cityName);
 					
 		}
 
@@ -34,26 +34,66 @@ function getWeather() {
 	myRequest.open("GET", "http://api.openweathermap.org/data/2.5/weather?q=Rexburg,id"); 
 	myRequest.send();
 	
+} 
+getWeather();
+
+/* ** you an start using $('#id') or $('.id') like jquery to call your divs ** */
+function $(anID){
+    return document.querySelector(anID);
 }
 
+// function getCity(cityName){
+//       $('#city_name_header').innerHTML = cityName;
+//       $('#city_name_footer').innerHTML = cityName;
 
-function getCity(cityName){
-	document.getElementById('city_name_header').innerHTML = cityName;
-	document.getElementById('city_name_footer').innerHTML = cityName;
-	document.getElementById('city_name_footer').style.borderBottom = "thick solid #fff";
-	document.getElementById('city_name_footer').style.width = "10%";
-	document.getElementById('city_name_footer').style.paddingBottom ="10px";
-	document.getElementById('city_name_footer').style.color = "#00bedf";
-}
+// }
 
 function getClothes(temp){
 	
 	if (temp <= 50){
 		console.log("below 50");
-		document.body.style.background = "linear-gradient(180deg, #005b81, #00bedf)";
+		document.body.style.background = "linear-gradient(180deg, #00bedf, #005b81)";
 		document.getElementById("shoes").src = "images/closeToed.svg";
 	} else{
 		console.log("51 and above");
-		document.body.style.background = "linear-gradient(180deg, #F1613C, #F7921E)";
+		document.body.style.background = "linear-gradient(180deg, #F7921E, #F1613C)";
 	}
 }
+
+
+/* This function when the plus-sign is clicked it will pulsate */
+$('#plus-sign').onclick = function(e){
+  $('#plus-sign').classList.add('animated');
+// scales the plus-sign to give it a pulsate look 
+  $('#plus-sign').style.webkitTransform = 'scale(1)';
+  $('#plus-sign').style.MozTransform = 'scale(1)';
+  $('#plus-sign').style.msTransform = 'scale(1)';
+  $('#plus-sign').style.OTransform = 'scale(1)';
+  $('#plus-sign').style.transform = 'scale(1)';
+
+};
+
+if($('#plus-sign').className.indexOf('animated') == 0){
+      $('#plus-sign').addEventListener('click',function(){
+          $('#plus-sign').classList.add('animated');
+      });
+}
+
+// [ closing window ]
+if($('#settings_wrapper').style.display == "none"){
+	$('#body').addEventListener('click',function(e) {
+	    if(e.target != $('#container') && e.target != $('#footer')) {
+	        $('#settings_wrapper').style.display="inline-block";
+	        console.log('open settings window');
+	    } else {
+	       console.log('close setting window');  
+	       $('#settings_wrapper').style.display="none";
+	       $('#plus-sign').classList.remove('animated');
+	    }
+	});
+	console.log('[closing window]');
+
+}
+
+
+
