@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<!--******************************************
+		Weather app - what to wear		
+    ******************************************-->
+	<title>Weather App</title>
+	<!--set viewport for mobile-->
+	<meta name="viewport" content="width=device-width, user-scalable=no, minimal-ui=yes">
+	<link rel="stylesheet" type="text/css" href="css/styles.css">
+	<link rel="stylesheet" type="text/css" href="css/lyle.css">	
+	
+	
+
+	
+</head>
+
+<body onload="getWeather()" id="body">
+     <div id="header">
+
+   <!-- City Header -->
+     <div class="city_wrapper"> 
+     		<div id="city_name_header">Weather App</div>
+        </div> <!-- #city_wrapper -->
+     <div>
+   <!-- / City Header -->
+
+	 <div id="container">
+	 	<div id="loading"></div>
+	 	<div id="temp"></div>
+
+	 	  <!-- Settings Log In -->
+	 	  <div id="settings_wrapper">
+	 	     <div id="settings">
+	 	     	<div id="close"><div id="x"></div></div> <!-- close box -->
+	 	     	 <form id="window">
+	 	     	 	 <input id="city" type="text" name="city" placeholder="Please enter a City and State..." /> </br>
+	 	     	 	 <input id="submit" type="submit" value="Submit" />
+	 	     	 </form>
+	 	     </div> <!-- #settings -->
+	 	   </div> <!-- #settings_wrapper -->
+	 	  <!-- / Settings Log In -->
+
+     </div> <!-- #container -->
+	  
+      <div id ="icon_wrapper">
+		 	 <div id = "imgIcons">
+		 		<img id="tops" src="images/shirt.svg"/>
+		 		<img id="bottoms" src="images/pants.svg"/>
+		 		<img id="shoes" src="images/shirt.svg"/>
+		 	</div> 	
+	   </div> <!-- #icon_wrapper -->
+
+	 <div id="footer" id="footer">
+	 	<div class="clear"></div>
+
+	 	<div id="plus_wrapper">
+	 	  <div id="plus-sign"></div>
+	 	</div> <!-- #plus_wrapper -->
+
+	 	<div class="clear"></div>
+
+	 	<!-- Javascript -->
+	 	<script type="text/javascript" src="js/custom.js"></script>
+	 </div>
+</body>
+</html>
