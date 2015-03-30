@@ -6,6 +6,7 @@ console.log('custom.js is working');
 // Grab the Api for api.openweathermap.org
 /* **************************** */
 function getWeather() {
+	$('#body')
 	//best pratice to set "waiting..." upfront, not later in the else statement
 	//make a new xhr object
 	var myRequest = new XMLHttpRequest();	
@@ -67,21 +68,20 @@ $('#plus-sign').onclick = function(e){
 // scales the plus-sign to give it a pulsate look 
   $('#plus-sign').style.transform = 'scale(1)';
 
-console.log($('#settings_wrapper').style.display);
-	if($('#settings_wrapper').style.display == "none"){
-		$('#body').addEventListener('click',function(e) {
-		    if(e.target != $('#container') && e.target != $('#footer')) {
-		        $('#settings_wrapper').style.display="inline-block";
-		        console.log('open settings window');
-		    } else {
-		       console.log('close setting window');  
-		       $('#settings_wrapper').style.display="none";
-		       $('#plus-sign').classList.remove('animated');
-		    }
-		});
-		console.log('[closing window]');
+	// if($('#settings_wrapper').style.display == "none"){
+	// 	$('#body').addEventListener('click',function(e) {
+	// 	    if(e.target != $('#container') && e.target != $('#footer')) {
+	// 	        $('#settings_wrapper').style.display="inline-block";
+	// 	        console.log('open settings window');
+	// 	    } else {
+	// 	       console.log('close setting window');  
+	// 	       $('#settings_wrapper').style.display="none";
+	// 	       $('#plus-sign').classList.remove('animated');
+	// 	    }
+	// 	});
+	// 	console.log('[closing window]');
 
-	}
+	// }
 };
 
 if($('#plus-sign').className.indexOf('animated') == 0){
@@ -93,6 +93,12 @@ if($('#plus-sign').className.indexOf('animated') == 0){
 // [ closing window ]
 
 
+function hideForm(){
+	console.log('ontouch');
+}
+function showForm(){
+	console.log('ontouch plus');
+}
 
 
 
