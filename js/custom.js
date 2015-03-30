@@ -65,12 +65,23 @@ function getClothes(temp){
 $('#plus-sign').onclick = function(e){
   $('#plus-sign').classList.add('animated');
 // scales the plus-sign to give it a pulsate look 
-  $('#plus-sign').style.webkitTransform = 'scale(1)';
-  $('#plus-sign').style.MozTransform = 'scale(1)';
-  $('#plus-sign').style.msTransform = 'scale(1)';
-  $('#plus-sign').style.OTransform = 'scale(1)';
   $('#plus-sign').style.transform = 'scale(1)';
 
+console.log($('#settings_wrapper').style.display);
+	if($('#settings_wrapper').style.display == "none"){
+		$('#body').addEventListener('click',function(e) {
+		    if(e.target != $('#container') && e.target != $('#footer')) {
+		        $('#settings_wrapper').style.display="inline-block";
+		        console.log('open settings window');
+		    } else {
+		       console.log('close setting window');  
+		       $('#settings_wrapper').style.display="none";
+		       $('#plus-sign').classList.remove('animated');
+		    }
+		});
+		console.log('[closing window]');
+
+	}
 };
 
 if($('#plus-sign').className.indexOf('animated') == 0){
@@ -80,20 +91,8 @@ if($('#plus-sign').className.indexOf('animated') == 0){
 }
 
 // [ closing window ]
-if($('#settings_wrapper').style.display == "none"){
-	$('#body').addEventListener('click',function(e) {
-	    if(e.target != $('#container') && e.target != $('#footer')) {
-	        $('#settings_wrapper').style.display="inline-block";
-	        console.log('open settings window');
-	    } else {
-	       console.log('close setting window');  
-	       $('#settings_wrapper').style.display="none";
-	       $('#plus-sign').classList.remove('animated');
-	    }
-	});
-	console.log('[closing window]');
 
-}
+
 
 
 
