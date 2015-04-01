@@ -18,25 +18,51 @@
 
 <body id="body" ontouchstart="hideForm()">
 
+
+
+	  
 	 <div id="container">
 	 	<div id="loading"></div> 
 	 	<div id="temp"></div>
+	 	
 
 	 	  <!-- Settings Log In -->
+	 	  
 	 	  <div id="settings_wrapper" ontouchstart="doNothing(event)">
 	 	     <div id="settings">
-	 	     	<div id="close"><div id="x"></div></div> <!-- close box -->
+
+	 	     	<div id="close"><div id="x"></div></div>
+				
+	 	     	 <!-- close box -->
+	 	     	 	
 	 	     	 <form id="window">
 	 	     	 	 <input id="city" type="text" name="city" placeholder="Please enter a City and State..." /> </br>
 	 	     	 </form>
 	 	     	 <input id="submit" type="submit" value="Submit" onclick="getNewCity()"/>
-	 	     </div> <!-- #settings -->
-	 	   </div> <!-- #settings_wrapper -->
+	 	     </div>
+	 	     
+	 	     <!-- #settings -->
+	 	     
+	 	   </div> 
+			
+	 	   <!-- #settings_wrapper -->
 	 	  <!-- / Settings Log In -->
+	 	 
+	<div id="weather_icon">
+	  	<img src="images/cloudy.svg"/>
+	  </div>
+	  <div id="message">
+	  	<img src="images/strut_your_stuff.svg"/>
+	  </div>
+	  
+     </div>
+     
+      <!-- #container -->
+     
+      <div class = "clear"></div>
 
-     </div> <!-- #container -->
-	  <div id="weather_icon"></div>
-	  <div id="message"></div>
+
+	  
       <div id ="icon_wrapper">
 		 	 <div id = "imgIcons">
 		 		<img id="tops" src="images/shirt.svg"/>

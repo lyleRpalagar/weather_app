@@ -8,6 +8,7 @@
 	height:250px;
 	display:inline-block;
 	margin-left:400%;
+  position:absolute;
 }
 
 #settings{
