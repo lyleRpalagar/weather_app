@@ -50,6 +50,13 @@ body {
   	padding-top: 11%;
 }
 
+#temp {
+	position: absolute;
+    width: 100%;
+    text-align: center;
+    margin-top: 46%;
+}
+
 #message img{
 	padding-left: 6%;
 	width: 80%;
