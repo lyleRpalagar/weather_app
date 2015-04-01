@@ -45,10 +45,14 @@ body {
 	max-width: 600px;
 }
 
-/*--------- Bottom ----------*/
-
-/*-------------------------*/
-
+#message img{
+	width:85%;
+	padding-left:5%;
+}
+#weather_icon img {
+	width:90%;
+	padding-left:4%;
+}
 
 
 
