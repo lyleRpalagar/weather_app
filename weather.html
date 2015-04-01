@@ -16,9 +16,9 @@
 	
 </head>
 
-<body onload="getWeather()" ontouchstart="hideForm()" id="body">
+<body onload="getWeather()" id="body">
 
-	 <div id="container">
+	 <div id="container" ontouchstart="hideForm()">
 	 	<div id="loading"></div> 
 	 	<div id="temp"></div>
 
@@ -47,6 +47,7 @@
 	 <div id="footer" id="footer">
 	 	<div class="clear"></div>
 
+	 	<div id="city_name"></div>
 	 	<div id="plus_wrapper">
 	 	  <div id="plus-sign" ontouchstart="showForm()"></div>
 	 	</div> <!-- #plus_wrapper -->

@@ -27,7 +27,7 @@ function getWeather() {
 					getClothes(far_temp);
 				}
             var cityName = answer.name;
-			//getCity(cityName);
+			getCity(cityName);
 					
 		}
 
@@ -43,11 +43,10 @@ function $(anID){
     return document.querySelector(anID);
 }
 
-// function getCity(cityName){
+function getCity(cityName){
 //       $('#city_name_header').innerHTML = cityName;
-//       $('#city_name_footer').innerHTML = cityName;
-
-// }
+     $('#city_name').innerHTML = cityName;
+}
 
 function getClothes(temp){
 	
@@ -61,43 +60,24 @@ function getClothes(temp){
 	}
 }
 
-
-/* This function when the plus-sign is clicked it will pulsate */
-$('#plus-sign').onclick = function(e){
-  $('#plus-sign').classList.add('animated');
-// scales the plus-sign to give it a pulsate look 
-  $('#plus-sign').style.transform = 'scale(1)';
-
-	// if($('#settings_wrapper').style.display == "none"){
-	// 	$('#body').addEventListener('click',function(e) {
-	// 	    if(e.target != $('#container') && e.target != $('#footer')) {
-	// 	        $('#settings_wrapper').style.display="inline-block";
-	// 	        console.log('open settings window');
-	// 	    } else {
-	// 	       console.log('close setting window');  
-	// 	       $('#settings_wrapper').style.display="none";
-	// 	       $('#plus-sign').classList.remove('animated');
-	// 	    }
-	// 	});
-	// 	console.log('[closing window]');
-
-	// }
-};
-
-if($('#plus-sign').className.indexOf('animated') == 0){
-      $('#plus-sign').addEventListener('click',function(){
-          $('#plus-sign').classList.add('animated');
-      });
-}
-
-// [ closing window ]
-
-
 function hideForm(){
-	console.log('ontouch');
+    $('#settings_wrapper').style.marginLeft = '400%';
+    animatePlus();
 }
 function showForm(){
-	console.log('ontouch plus');
+	animatePlus();
+}
+
+/* This function when the plus-sign is clicked it will pulsate */
+function animatePlus(){
+  if($('#plus-sign').className.indexOf('animated') == 0){ 	    
+	    $('#plus-sign').classList.remove('animated');
+	    $('#settings_wrapper').style.marginLeft = '400%';
+	}else{
+	    $('#plus-sign').classList.add('animated');
+	    $('#plus-sign').style.transform = 'scale(1)';
+	    $('#settings_wrapper').style.marginLeft = '0';
+	  }
 }
 
 
