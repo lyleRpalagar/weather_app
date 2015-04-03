@@ -48,7 +48,7 @@ function getWeather() {
 			var kelvin_temp = answer.main.temp;
 				if (kelvin_temp){
 				    var far_temp = Math.round((kelvin_temp - 273.15)* 1.8000 + 32.00);
-					document.getElementById('temp').innerHTML = far_temp + " degrees";
+					document.querySelector('#temp').innerHTML = far_temp;
 					getClothes(far_temp);
 				}	
 		}
@@ -87,7 +87,7 @@ function getClothes(temp){
 /* When new values are set rerun xml request to get new city and degrees */
 function getNewCity(){
     var zipcode = $('#city').value;
-     displayNewCity(zipcode);
+    displayNewCity(zipcode);
 }
 
 function displayNewCity(zipcode){
@@ -106,9 +106,18 @@ function displayNewCity(zipcode){
   myNewCity.send();
 }
 
+<<<<<<< HEAD
 function displayNewDegree(cityNewName){
 	var myRequest = new XMLHttpRequest();
 	var newCity = cityNewName;	
+=======
+function displayNewDegree(cityNewName) {
+	//best pratice to set "waiting..." upfront, not later in the else statement
+	//make a new xhr object
+
+	var myRequest = new XMLHttpRequest();	
+	var newCity = cityNewName;
+>>>>>>> update
 	myRequest.onreadystatechange = function() {
 		//set waiting first, then don't use an else statement
 		document.getElementById('loading').innerHTML = "Waiting...";
@@ -121,6 +130,7 @@ function displayNewDegree(cityNewName){
 			var kelvin_temp = answer.main.temp;
 				if (kelvin_temp){
 				    var far_temp = Math.round((kelvin_temp - 273.15)* 1.8000 + 32.00);
+<<<<<<< HEAD
 					document.getElementById('temp').innerHTML = far_temp + " degrees";
 					getClothes(far_temp);
 					console.log((kelvin_temp - 273.15) * 1.800 + 32.00);
@@ -128,6 +138,41 @@ function displayNewDegree(cityNewName){
 				}	
 		}
 
+=======
+					document.querySelector('#temp').innerHTML = far_temp;
+					getClothes(far_temp);
+				}	
+		}
+
+	}
+	myRequest.open("GET", "http://api.openweathermap.org/data/2.5/weather?q="+newCity+",id"); 
+	myRequest.send();
+	
+} 
+
+// window.onload = function changeTemp(){
+
+// 	document.getElementById('temp').innerHTML = svg.replace('%{temp}', 95);
+// }
+
+function getClothes(temp){
+	
+	if (temp <= 30){
+		console.log("below 50");
+		document.body.style.background = "linear-gradient(180deg, #00bedf, #005b81)";
+		document.getElementById("tops").src = "images/longSleeves.svg";
+		document.getElementById("bottoms").src = "images/pants.svg";
+		document.getElementById("shoes").src = "images/closeToed.svg";		
+		document.querySelector("#weather_icon img").src = "images/cloudy.svg";
+	} else{
+		console.log("51 and above");
+		document.body.style.background = "linear-gradient(180deg, #F7921E, #F1613C)";
+		document.querySelector("#weather_icon img").src = "images/sun.svg";
+		document.getElementById("tops").src = "images/shirt.svg";
+		document.getElementById("bottoms").src = "images/shorts.svg";
+		document.getElementById("shoes").src = "images/flipflops.svg";
+
+>>>>>>> update
 	}
 	myRequest.open("GET", "http://api.openweathermap.org/data/2.5/weather?q="+cityNewName+",id"); 
 	myRequest.send();
@@ -147,7 +192,12 @@ function hideForm(event){
     animatePlus();
 }
 function showForm(event){
+<<<<<<< HEAD
 	event.stopPropagation();
+=======
+	event.stopPropagation()
+	$('#settings_wrapper').style.marginLeft = '0';
+>>>>>>> update
 	animatePlus();
 }
 function doNothing(event){
@@ -156,13 +206,20 @@ function doNothing(event){
 
 /* This function when the plus-sign is clicked it will pulsate */
 function animatePlus(){
-  if($('#plus-sign').className.indexOf('animated') == 0){ 	    
+  //if($('#plus-sign').className.indexOf('animated') == 0){ 
+  if ($('#settings_wrapper').style.marginLeft == '400%'){	    
 	    $('#plus-sign').classList.remove('animated');
-	    $('#settings_wrapper').style.marginLeft = '400%';
+	    //$('#settings_wrapper').style.marginLeft = '400%';
 	}else{
 	    $('#plus-sign').classList.add('animated');
 	    $('#plus-sign').style.transform = 'scale(1)';
+<<<<<<< HEAD
 	    $('#settings_wrapper').style.marginLeft = '0';
 	    $('#alert').play();
+=======
+	    $('#alert').play();
+
+	    //$('#settings_wrapper').style.marginLeft = '0';
+>>>>>>> update
 	  }
 }

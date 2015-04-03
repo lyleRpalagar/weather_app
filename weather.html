@@ -8,14 +8,16 @@
 	<title>Weather App</title>
 	<!--set viewport for mobile-->
 	<meta name="viewport" content="width=device-width, user-scalable=no, minimal-ui=yes">
-	<link rel="stylesheet" type="text/css" href="css/styles.css">
+	
 	<link rel="stylesheet" type="text/css" href="css/lyle.css">	
+	<link rel="stylesheet" type="text/css" href="css/styles.css">
 	
 	
 
 	
 </head>
 
+<<<<<<< HEAD
 <body id="body" ontouchstart="hideForm(event)">
 
 
@@ -29,13 +31,19 @@
            </audio>
 
 	 	  <!-- Settings Log In -->
+=======
+<body id="body" ontouchstart="hideForm()">	
+
+<!-- Settings Log In -->
+>>>>>>> update
 	 	  
 	 	  <div id="settings_wrapper" ontouchstart="doNothing(event)">
 	 	     <div id="settings"> 	     	 	
-	 	     	 <form id="window">
-	 	     	 	 <input id="city" type="text" name="city" placeholder="Please enter a City and State..." /> </br>
-	 	     	 </form>
-	 	     	 <input id="submit" type="submit" value="Submit" onclick="getNewCity()"/>
+	 	     	 <!-- <div id="window"> -->
+	 	     	 	 <input id="city" type="text" name="city" placeholder="Please enter a City and State..." />
+
+	 	     	<input id="submit" type="submit" value=" " onclick="getNewCity()"/>
+	 	     	 
 	 	     </div>
 	 	     
 	 	     <!-- #settings -->
@@ -44,12 +52,25 @@
 			
 	 	   <!-- #settings_wrapper -->
 	 	  <!-- / Settings Log In -->
+
+	 <div id="container">
+
+	 	<audio controls id="alert">
+	 		<source src="notification.mp3" type="audio/mpeg"/>
+	 	</audio>
+	 	<div id="loading"></div> 
+	 	<div id="temp">
+	 	</div>
+	 	
+
+	 	  
 	 	 
 		  <div id="weather_icon">
 		  	<img src="images/cloudy.svg"/>
 		  </div>
 		  <div id="message">
-		  	<img src="images/strut_your_stuff.svg"/>
+		  	<p>Strut your stuff</p>
+		  	<!-- <img src="images/strut_your_stuff.svg"/> -->
 		  </div>
 	  
      </div>
@@ -71,11 +92,11 @@
 	 <div id="footer" id="footer">
 	 	<div class="clear"></div>
 
-	 	<div id="city_name"></div>
+	 	
 	 	<div id="plus_wrapper">
 	 	  <div id="plus-sign" ontouchstart="showForm(event)"></div>
 	 	</div> <!-- #plus_wrapper -->
-
+	 	<div id="city_name"></div>
 	 	<div class="clear"></div>
 
 	 	<!-- Javascript -->
