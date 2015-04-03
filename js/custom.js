@@ -141,16 +141,17 @@ function displayNewDegree(cityNewName){
 
 /* Animation for form and plus-sign */
 
-function hideForm(){
+function hideForm(event){
+	event.stopPropagation();
     $('#settings_wrapper').style.marginLeft = '400%';
     animatePlus();
 }
 function showForm(event){
-	event.stopPropagation()
+	event.stopPropagation();
 	animatePlus();
 }
 function doNothing(event){
-	event.stopPropagation()
+	event.stopPropagation();
 }
 
 /* This function when the plus-sign is clicked it will pulsate */
@@ -162,5 +163,6 @@ function animatePlus(){
 	    $('#plus-sign').classList.add('animated');
 	    $('#plus-sign').style.transform = 'scale(1)';
 	    $('#settings_wrapper').style.marginLeft = '0';
+	    $('#alert').play();
 	  }
 }
