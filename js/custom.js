@@ -1,13 +1,5 @@
-/*Bugs 
-* 1) When you reload the page the city restarts to default
-* 2) The weather api is wrong on some cities ex Lake Forest 
-*/
-
-
-/* ** you an start using $('#id') or $('.id') like jquery to call your divs ** */
-function $(anID){
-    return document.querySelector(anID);
-}
+// check if the javascript file is working
+console.log('custom.js is working');
 
 /* **************************** */
 // Connection
@@ -60,31 +52,15 @@ function getWeather() {
 } 
 getWeather();
 
-
+/* ** you an start using $('#id') or $('.id') like jquery to call your divs ** */
+function $(anID){
+    return document.querySelector(anID);
+}
 
 function getCity(cityNameDefault){
 //       $('#city_name_header').innerHTML = cityName;
     $('#city_name').innerHTML = cityNameDefault;
 }
-
-
-function getClothes(temp){
-	
-	if (temp <= 50){
-		console.log("below 50");
-		document.body.style.background = "linear-gradient(180deg, #00bedf, #005b81)";
-		document.getElementById("shoes").src = "images/closeToed.svg";
-		document.getElementById("weather_icon").src = "images/cloudy.svg";
-		document.getElementById("message").src = "images/strut_your_stuff.svg";
-	} else{
-		console.log("51 and above");
-		document.body.style.background = "linear-gradient(180deg, #F7921E, #F1613C)";
-	}
-}
-
-
-
-/* When new values are set rerun xml request to get new city and degrees */
 function getNewCity(){
     var zipcode = $('#city').value;
     displayNewCity(zipcode);
@@ -106,18 +82,12 @@ function displayNewCity(zipcode){
   myNewCity.send();
 }
 
-<<<<<<< HEAD
-function displayNewDegree(cityNewName){
-	var myRequest = new XMLHttpRequest();
-	var newCity = cityNewName;	
-=======
 function displayNewDegree(cityNewName) {
 	//best pratice to set "waiting..." upfront, not later in the else statement
 	//make a new xhr object
 
 	var myRequest = new XMLHttpRequest();	
 	var newCity = cityNewName;
->>>>>>> update
 	myRequest.onreadystatechange = function() {
 		//set waiting first, then don't use an else statement
 		document.getElementById('loading').innerHTML = "Waiting...";
@@ -130,15 +100,6 @@ function displayNewDegree(cityNewName) {
 			var kelvin_temp = answer.main.temp;
 				if (kelvin_temp){
 				    var far_temp = Math.round((kelvin_temp - 273.15)* 1.8000 + 32.00);
-<<<<<<< HEAD
-					document.getElementById('temp').innerHTML = far_temp + " degrees";
-					getClothes(far_temp);
-					console.log((kelvin_temp - 273.15) * 1.800 + 32.00);
-					console.log(kelvin_temp);
-				}	
-		}
-
-=======
 					document.querySelector('#temp').innerHTML = far_temp;
 					getClothes(far_temp);
 				}	
@@ -172,36 +133,20 @@ function getClothes(temp){
 		document.getElementById("bottoms").src = "images/shorts.svg";
 		document.getElementById("shoes").src = "images/flipflops.svg";
 
->>>>>>> update
 	}
-	myRequest.open("GET", "http://api.openweathermap.org/data/2.5/weather?q="+cityNewName+",id"); 
-	myRequest.send();
 }
 
-
-
-
-
-
-
-/* Animation for form and plus-sign */
-
-function hideForm(event){
-	event.stopPropagation();
+function hideForm(){
     $('#settings_wrapper').style.marginLeft = '400%';
     animatePlus();
 }
 function showForm(event){
-<<<<<<< HEAD
-	event.stopPropagation();
-=======
 	event.stopPropagation()
 	$('#settings_wrapper').style.marginLeft = '0';
->>>>>>> update
 	animatePlus();
 }
 function doNothing(event){
-	event.stopPropagation();
+	event.stopPropagation()
 }
 
 /* This function when the plus-sign is clicked it will pulsate */
@@ -213,13 +158,13 @@ function animatePlus(){
 	}else{
 	    $('#plus-sign').classList.add('animated');
 	    $('#plus-sign').style.transform = 'scale(1)';
-<<<<<<< HEAD
-	    $('#settings_wrapper').style.marginLeft = '0';
-	    $('#alert').play();
-=======
 	    $('#alert').play();
 
 	    //$('#settings_wrapper').style.marginLeft = '0';
->>>>>>> update
 	  }
 }
+
+
+
+
+
