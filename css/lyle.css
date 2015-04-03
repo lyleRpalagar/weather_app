@@ -9,6 +9,7 @@
 	display:inline-block;
 	margin-left:400%;
   position:absolute;
+  transition:0.5s all ease;
 }
 
 #settings{
