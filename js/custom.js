@@ -1,6 +1,16 @@
 // check if the javascript file is working
 console.log('custom.js is working');
 
+//hide browser
+window.addEventListener("load",function() {
+	// Set a timeout...
+	setTimeout(function(){
+		// Hide the address bar!
+		window.scrollTo(0, 1);
+	}, 0);
+});
+
+
 /* **************************** */
 // Connection
 // Grab the Api for http://www.zippopotam.us/
@@ -160,6 +170,7 @@ function getClothes(temp){
 		document.getElementById("bottoms").src = "images/pants.svg";
 		document.getElementById("shoes").src = "images/closeToed.svg";		
 		document.querySelector("#weather_icon img").src = "images/cloudy.svg";
+		document.getElementById("message").innerHTML = "Kill it <br>today";
 	} else{
 		console.log("51 and above");
 		document.body.style.background = "linear-gradient(180deg, #F7921E, #F1613C)";
@@ -167,6 +178,7 @@ function getClothes(temp){
 		document.getElementById("tops").src = "images/shirt.svg";
 		document.getElementById("bottoms").src = "images/shorts.svg";
 		document.getElementById("shoes").src = "images/flipflops.svg";
+		document.getElementById("message").innerHTML = "Strut your stuff";
 
 	}
 }
