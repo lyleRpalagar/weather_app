@@ -6,16 +6,28 @@ console.log('custom.js is working');
 // Grab the Api for http://www.zippopotam.us/
 /* **************************** */
 function getCityName(){
-var myCity = new XMLHttpRequest();
+	//check to see if app has been opened and city stored/changed
+	if (typeof localStorage.zip == 'undefined') {
+		var zip = 83440;
+	} else {
+		var zip = localStorage.zip;
+	}
+
+	var myCity = new XMLHttpRequest();
 	myCity.onreadystatechange = function() {
 		if(myCity.readyState == 4 && myCity.status==200) {
 			var response2 = myCity.responseText;
 			var answer2 = JSON.parse(response2);
 			var cityNameDefault = answer2.places[0]['place name'];
+			var state = answer2.places[0]['state abbreviation'];
+			console.log(cityNameDefault, state);
+			localStorage.zip = zip;
+			localStorage.city = cityNameDefault;
+			localStorage.state = state;
 			getCity(cityNameDefault);
 		};
      };
-  myCity.open("GET", "http://api.zippopotam.us/us/83440", true);
+  myCity.open("GET", "http://api.zippopotam.us/us/"+zip, true);
   myCity.send();
 }
 getCityName();
@@ -27,6 +39,14 @@ getCityName();
 function getWeather() {
 	//best pratice to set "waiting..." upfront, not later in the else statement
 	//make a new xhr object
+	if (typeof localStorage.city == 'undefined' || typeof localStorage.state == 'undefined') {
+		var city = "Rexburg";
+		var state = "ID";
+	} else {
+		var city = localStorage.city;
+		var state = localStorage.state;
+
+	}
 	var myRequest = new XMLHttpRequest();	
 	myRequest.onreadystatechange = function() {
 		//set waiting first, then don't use an else statement
@@ -46,10 +66,13 @@ function getWeather() {
 		}
 
 	}
-	myRequest.open("GET", "http://api.openweathermap.org/data/2.5/weather?q=Rexburg,id"); 
+	console.log(city);
+	console.log("http://api.openweathermap.org/data/2.5/weather?q=" +city+ "," +state);
+	myRequest.open("GET", "http://api.openweathermap.org/data/2.5/weather?q=" +city+ "," +state); 
 	myRequest.send();
 	
 } 
+
 getWeather();
 
 /* ** you an start using $('#id') or $('.id') like jquery to call your divs ** */
@@ -62,27 +85,36 @@ function getCity(cityNameDefault){
     $('#city_name').innerHTML = cityNameDefault;
 }
 function getNewCity(){
+	hideForm();
     var zipcode = $('#city').value;
     displayNewCity(zipcode);
+
 }
 
 function displayNewCity(zipcode){
 	var zipcode = zipcode;
 	var myNewCity = new XMLHttpRequest();
+
 	myNewCity.onreadystatechange = function() {
 		if(myNewCity.readyState == 4 && myNewCity.status==200) {
 			var response2 = myNewCity.responseText;
 			var answer2 = JSON.parse(response2);
 			var cityNewName = answer2.places[0]['place name'];
+			var state = answer2.places[0]['state abbreviation'];
+			console.log(answer2);
+			localStorage.zip = zipcode;
+			localStorage.city = cityNewName;
+			localStorage.state = state;
+
             $('#city_name').innerHTML = cityNewName;
-            displayNewDegree(cityNewName);
+            displayNewDegree(cityNewName, state);
 		};
      };
   myNewCity.open("GET", "http://api.zippopotam.us/us/"+zipcode, true);
   myNewCity.send();
 }
 
-function displayNewDegree(cityNewName) {
+function displayNewDegree(cityNewName, state) {
 	//best pratice to set "waiting..." upfront, not later in the else statement
 	//make a new xhr object
 
@@ -92,10 +124,13 @@ function displayNewDegree(cityNewName) {
 		//set waiting first, then don't use an else statement
 		document.getElementById('loading').innerHTML = "Waiting...";
 		if (myRequest.readyState ==4 && myRequest.status==200){	
+		
 			document.getElementById('loading').innerHTML = " ";
 
 			var response = myRequest.responseText;
-		    var answer = JSON.parse(response);	
+		    var answer = JSON.parse(response);
+		    console.log(answer);
+	
 			//get the temperature
 			var kelvin_temp = answer.main.temp;
 				if (kelvin_temp){
@@ -106,7 +141,7 @@ function displayNewDegree(cityNewName) {
 		}
 
 	}
-	myRequest.open("GET", "http://api.openweathermap.org/data/2.5/weather?q="+newCity+",id"); 
+	myRequest.open("GET", "http://api.openweathermap.org/data/2.5/weather?q="+newCity+","+state); 
 	myRequest.send();
 	
 } 

@@ -24,10 +24,11 @@
 	 	  <div id="settings_wrapper" ontouchstart="doNothing(event)">
 	 	     <div id="settings"> 	     	 	
 	 	     	 <!-- <div id="window"> -->
-	 	     	 	 <input id="city" type="text" name="city" placeholder="Please enter a City and State..." />
+	 	     	 <form onsubmit="getNewCity(); return false;">
+	 	     	 	 <input id="city" type="text" name="city" placeholder="Please enter a zip code..." />
 
-	 	     	<input id="submit" type="submit" value=" " onclick="getNewCity()"/>
-	 	     	 
+	 	     		 <input id="submit" type="submit" value=" "/>
+	 	     	 </form>
 	 	     </div>
 	 	     
 	 	     <!-- #settings -->
