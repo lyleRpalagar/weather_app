@@ -153,7 +153,7 @@ function displayNewDegree(cityNewName, state) {
 
 function getClothes(temp){
 	
-	if (temp <= 30){
+	if (temp <= 50){
 		console.log("below 50");
 		document.body.style.background = "linear-gradient(180deg, #00bedf, #005b81)";
 		document.getElementById("tops").src = "images/longSleeves.svg";
